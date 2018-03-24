@@ -2,9 +2,9 @@
 title: "ICCV 2009"
 collection: talks
 type: "Talk"
-permalink: /talks/2012-03-01-talk-1
+permalink: /talks/iccv
 venue: "UC San Francisco, Department of Testing"
-date: 2012-03-01
+date: 2009-09-30
 location: "Kyoto, Japan"
 ---
 

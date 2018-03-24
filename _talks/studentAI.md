@@ -2,9 +2,9 @@
 title: "Student AI workshop"
 collection: talks
 type: "Tutorial"
-permalink: /talks/2013-03-01-tutorial-1
+permalink: /talks/studentAI
 venue: "UC-Berkeley Institute for Testing Science"
-date: 2013-03-01
+date: 2017-08-01
 location: "HsinChu, Taiwan"
 ---
 
