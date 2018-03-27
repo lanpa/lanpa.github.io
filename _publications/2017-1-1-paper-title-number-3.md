@@ -3,6 +3,5 @@ title: "Quantitative Analysis of Automatic Image Cropping Algorithms: A Dataset 
 collection: publications
 permalink: /publication/2017-1-1-paper-title-number-3
 date: 2017-1-1
-venue: 'NA'
-citation: 'NA'
+venue: 'WACV'
 ---

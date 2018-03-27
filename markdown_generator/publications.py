@@ -52,6 +52,9 @@ html_escape_table = {
 
 def html_escape(text):
     """Produce entities within text."""
+    import numpy
+    if numpy.isnan(text):
+        return ''
     return "".join(html_escape_table.get(c,c) for c in text)
 
 

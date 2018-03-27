@@ -1,3 +1,5 @@
+#run with bundle exec jekyll liveserve --config _config.yml,_config.dev.yml
+
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
