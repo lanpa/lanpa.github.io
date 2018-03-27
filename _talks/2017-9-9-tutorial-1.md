@@ -2,9 +2,9 @@
 title: "NTHU student AI workshop"
 collection: talks
 type: "tutorial"
-permalink: /talks/9/9/17-tutorial-1
+permalink: /talks/2017-9-9-tutorial-1
 venue: "National Tsing-Hua University"
-date: 9/9/17
+date: 2017-9-9
 location: "HsinChu, Taiwan"
 ---
 

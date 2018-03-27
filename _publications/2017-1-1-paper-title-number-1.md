@@ -1,8 +1,8 @@
 ---
 title: "Chess recognition from a single depth image"
 collection: publications
-permalink: /publication/1/1/17-paper-title-number-1
-date: 1/1/17
+permalink: /publication/2017-1-1-paper-title-number-1
+date: 2017-1-1
 venue: 'NA'
 citation: 'NA'
 ---
