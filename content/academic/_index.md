@@ -14,6 +14,22 @@ My research focuses on machine learning, computer vision, and deep learning. I h
 
 [View Publications →](/academic/publications/)
 
+## 🎥 Lecture Videos
+
+I have created over 114 educational videos covering computer science topics including:
+- Programming (Python, JavaScript)
+- Algorithms and Data Structures
+- Machine Learning and AI
+- Computer Systems and Networks
+- Software Development Tools
+
+[Browse Lecture Videos →](/academic-videos/)
+
+**Popular Topics:**
+- [Low-level Programming (CS135701)](/academic-videos/10410cs135701-20151126-低階語言/)
+- [Programming Fundamentals](/academic-videos/10320qf100300寫程式的基本常識/)
+- [Python Syntax Tutorial](/academic-videos/10310qf100200codecademy第1關-python-syntax/)
+
 ---
 
 ## 🎤 Talks & Presentations  

@@ -18,6 +18,10 @@ theme = "PaperMod"
   url = "https://github.com/lanpa"
 
 [[params.socialIcons]]
+  name = "youtube"
+  url = "https://www.youtube.com/@twhuangtw"
+
+[[params.socialIcons]]
   name = "rss"
   url = "/index.xml"
 
