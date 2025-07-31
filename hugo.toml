@@ -1,0 +1,69 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "Tzu-Wei Huang"
+theme = "PaperMod"
+
+[params]
+  homeInfoParams = { Title = "Tzu-Wei Huang", Content = "Ph.D. student and lecturer at NTHU, interested in machine learning." }
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowTagCloud = true
+  defaultTheme = "auto"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/lanpa"
+
+[[params.socialIcons]]
+  name = "rss"
+  url = "/index.xml"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+[[menu.main]]
+  name = "Research"
+  url = "/academic/publications/"
+  weight = 1
+
+[[menu.main]]
+  name = "Talks"
+  url = "/academic/talks/"
+  weight = 2
+
+[[menu.main]]
+  name = "Courses"
+  url = "/academic/teaching/"
+  weight = 3
+
+[[menu.main]]
+  name = "Explorations"
+  url = "/explorations/"
+  weight = 4
+
+[[menu.main]]
+  name = "Work & Projects"
+  url = "/work/"
+  weight = 5
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 6
+
+[[menu.main]]
+  name = "CV"
+  url = "/cv/"
+  weight = 7
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 8
+

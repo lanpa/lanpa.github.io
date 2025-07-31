@@ -1,0 +1,17 @@
+{{- if site.Taxonomies.tags }}
+<div class="tag-cloud">
+  <h3>Popular Tags</h3>
+  <div class="tag-list">
+    {{- range $name, $taxonomy := site.Taxonomies.tags }}
+    <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}" 
+       class="tag-item" 
+       title="{{ $name }} ({{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }})">
+      {{ $name }}
+      <span class="tag-count">({{ .Count }})</span>
+    </a>
+    {{- end }}
+  </div>
+</div>
+
+{{- partial "tag_styles.html" . }}
+{{- end }}

@@ -1,4 +1,0 @@
-title	type	url_slug	venue	date	location	talk_url	description
-presentation at ICCV2009	Conference proceedings talk	conf-1	International Conference Center	2009-10-1	"Kyoto, Japan"	http://yokoya.naist.jp/iccv2009/program/index.html	This is my first talk. Presenting the paper.
-presentation at ISBI2017	Conference proceedings talk	conf-2	Melbourne Convention and Exhibition Centre	2017-4-20	"Melbourne, Australia"	http://biomedicalimaging.org/2017/	This is my second talk. Presenting the paper.
-NTHU student AI workshop	tutorial	tutorial-1	National Tsing-Hua University	2017-9-9	"HsinChu, Taiwan"	https://sites.google.com/view/aistudentworkshop/%E9%A6%96%E9%A0%81-home	This is a 3 hour tutorial sessioin aimed for PyTorch newbies.

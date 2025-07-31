@@ -1,0 +1,46 @@
+<style>
+.tag-cloud {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--theme);
+}
+
+.tag-cloud h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: var(--code-bg);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.tag-item:hover {
+  background: var(--primary);
+  color: var(--theme);
+  transform: translateY(-1px);
+}
+
+.tag-item .tag-count {
+  font-size: 0.8em;
+  color: var(--secondary);
+  margin-left: 0.25rem;
+}
+</style>
