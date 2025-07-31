@@ -1,4 +1,7 @@
-baseURL = "https://lanpa.github.io/"
+# Development configuration for local testing
+# Usage: hugo server --config hugo.dev.toml
+
+baseURL = "http://localhost:1313/"
 languageCode = "en-us"
 title = "Tzu-Wei Huang"
 theme = "PaperMod"
@@ -66,4 +69,3 @@ theme = "PaperMod"
   name = "Tags"
   url = "/tags/"
   weight = 8
-
