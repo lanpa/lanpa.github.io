@@ -6,8 +6,6 @@ tags = ["explorations", "projects", "personal"]
 layout = "single"
 +++
 
-# Explorations
-
 Welcome to my personal explorations and projects. Here I share experiences, experiments, and adventures outside of my academic work.
 
 ## 🚴‍♂️ Travel & Adventures

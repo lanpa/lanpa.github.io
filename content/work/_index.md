@@ -6,8 +6,6 @@ tags = ["work", "projects", "professional"]
 layout = "single"
 +++
 
-# Work & Projects
-
 This section showcases my professional work, industry projects, and commercial experiences outside of academia.
 
 ## 💼 Professional Experience

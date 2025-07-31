@@ -6,8 +6,6 @@ tags = ["academic", "research", "teaching"]
 layout = "single"
 +++
 
-# Academic Work
-
 Welcome to my academic portfolio. Here you'll find information about my research, presentations, and teaching activities.
 
 ## 📚 Research & Publications
