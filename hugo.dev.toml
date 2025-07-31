@@ -31,41 +31,31 @@ theme = "PaperMod"
 
 [menu]
 [[menu.main]]
-  name = "Research"
-  url = "/academic/publications/"
+  name = "Academic"
+  url = "/academic/"
   weight = 1
-
-[[menu.main]]
-  name = "Talks"
-  url = "/academic/talks/"
-  weight = 2
-
-[[menu.main]]
-  name = "Courses"
-  url = "/academic/teaching/"
-  weight = 3
 
 [[menu.main]]
   name = "Explorations"
   url = "/explorations/"
-  weight = 4
+  weight = 2
 
 [[menu.main]]
   name = "Work & Projects"
   url = "/work/"
-  weight = 5
+  weight = 3
 
 [[menu.main]]
   name = "About"
   url = "/about/"
-  weight = 6
+  weight = 4
 
 [[menu.main]]
   name = "CV"
   url = "/cv/"
-  weight = 7
+  weight = 5
 
 [[menu.main]]
   name = "Tags"
   url = "/tags/"
-  weight = 8
+  weight = 6

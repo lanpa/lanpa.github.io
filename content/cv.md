@@ -43,7 +43,7 @@ Duties included: Bug fixing. Hardware maintenance.
 
 ## Publications
 
-For a complete list of publications, please see the [Research page](/academic/publications/).
+For a complete list of publications, please see the [Publications page](/academic/publications/).
 
 ## Talks
 
@@ -51,4 +51,8 @@ For information about talks and presentations, please see the [Talks page](/acad
 
 ## Teaching
 
-For details about courses taught, please see the [Courses page](/academic/teaching/).
+For details about courses taught, please see the [Teaching page](/academic/teaching/).
+
+---
+
+*For a comprehensive overview of all my academic work, visit the [Academic section](/academic/).*
