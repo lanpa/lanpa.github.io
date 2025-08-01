@@ -2,6 +2,7 @@
 date = '2025-07-30T01:35:20+08:00'
 draft = false
 title = 'About Me'
+comments = false
 +++
 
 I am a Ph.D. student and lecturer at National Tsing Hua University (NTHU), with a focus on machine learning research. My work spans various areas of computer vision and artificial intelligence.

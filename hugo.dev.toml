@@ -15,10 +15,16 @@ theme = "PaperMod"
   ShowCodeCopyButtons = true
   ShowTagCloud = true
   defaultTheme = "auto"
+  # Comments system
+  comments = true
 
 [[params.socialIcons]]
   name = "github"
   url = "https://github.com/lanpa"
+
+[[params.socialIcons]]
+  name = "youtube"
+  url = "https://www.youtube.com/@twhuangtw"
 
 [[params.socialIcons]]
   name = "rss"
@@ -46,11 +52,16 @@ theme = "PaperMod"
   weight = 3
 
 [[menu.main]]
+  name = "環騎台北"
+  url = "/velodash/"
+  weight = 4
+
+[[menu.main]]
   name = "About"
   url = "/about/"
-  weight = 4
+  weight = 5
 
 [[menu.main]]
   name = "Tags"
   url = "/tags/"
-  weight = 5
+  weight = 6
