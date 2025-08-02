@@ -36,7 +36,8 @@
   {{- partial "toc.html" . }}
   {{- end }}
 
-  {{- if site.Params.ShowTagCloud }}
+  {{- $hideTags := .Params.hideTags | default false }}
+  {{- if and site.Params.ShowTagCloud (not $hideTags) }}
   {{- partial "tag_sidebar.html" . }}
   {{- end }}
 
@@ -49,12 +50,14 @@
   {{- end }}
 
   <footer class="post-footer">
+    {{- if not $hideTags }}
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
       {{- range ($.GetTerms $tags) }}
       <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
+    {{- end }}
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}
