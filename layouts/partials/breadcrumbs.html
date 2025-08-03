@@ -1,0 +1,20 @@
+{{- if gt .Parent.Kind "section" }}
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    </li>
+    {{- template "breadcrumb" (dict "page" . "value" .Parent) }}
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
+{{- end }}
+
+{{- define "breadcrumb" }}
+{{- if .value.Parent }}
+{{- template "breadcrumb" (dict "page" .page "value" .value.Parent) }}
+{{- end }}
+<li class="breadcrumb-item">
+  <a href="{{ .value.Permalink }}">{{ .value.Title }}</a>
+</li>
+{{- end }}

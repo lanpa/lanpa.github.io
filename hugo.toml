@@ -1,9 +1,10 @@
 baseURL = "https://lanpa.github.io/"
 languageCode = "en-us"
 title = "Tzu-Wei Huang"
-theme = "PaperMod"
+theme = "hugo-profile"
 
 [params]
+  enableSearch = true
   homeInfoParams = { Title = "Tzu-Wei Huang", Content = "Ph.D. student and lecturer at NTHU, interested in machine learning." }
   ShowReadingTime = true
   ShowShareButtons = true

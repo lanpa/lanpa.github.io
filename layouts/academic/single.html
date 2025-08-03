@@ -1,35 +1,53 @@
-{{- define "main" }}
-<article class="post-single">
-  <header class="post-header">
-    {{ partial "breadcrumbs.html" . }}
-    <h1 class="post-title entry-hint-parent">
-      {{ .Title }}
-    </h1>
-    {{- if .Description }}
-    <div class="post-description">
-      {{ .Description }}
-    </div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <div class="post-meta">
-      {{- partial "post_meta.html" . -}}
-    </div>
-    {{- end }}
-  </header>
+{{ define "head" }}
+<meta name="description" content="{{ .Params.description }}">
+<link rel="stylesheet" href="{{.Site.Params.staticPath}}/css/single.css">
+<script defer src="{{.Site.Params.staticPath}}/fontawesome-6/all-6.4.2.js"></script>
+{{ end }}
 
-  {{- if .Content }}
-  <div class="post-content">
-    {{- .Content -}}
+{{ define "title" }}
+{{.Title }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          {{ partial "breadcrumbs.html" . }}
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">{{ .Title }}</h1>
+          </div>
+
+          {{- if .Description }}
+          <div class="post-description mb-4">
+            {{ .Description }}
+          </div>
+          {{- end }}
+
+          {{- if .Content }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          {{- end }}
+
+          {{- $hideTags := .Params.hideTags | default false }}
+          {{- if not $hideTags }}
+          {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+          {{- if ($.GetTerms $tags) }}
+          <div class="tags mt-4">
+            <h5>Tags:</h5>
+            {{- range ($.GetTerms $tags) }}
+            <span class="badge bg-secondary me-1">
+              <a href="{{ .Permalink }}" class="text-white text-decoration-none">{{ .LinkTitle }}</a>
+            </span>
+            {{- end }}
+          </div>
+          {{- end }}
+          {{- end }}
+        </div>
+      </div>
+    </div>
   </div>
-  {{- end }}
-
-  <footer class="post-footer">
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-  </footer>
-</article>
-{{- end }}
+</section>
+{{ end }}

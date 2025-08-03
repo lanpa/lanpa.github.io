@@ -1,80 +1,66 @@
-{{- define "main" }}
+{{ define "head" }}
+<meta name="description" content="{{ .Title }} of {{ .Site.Title }}">
+<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/list.css" media="all">
+{{ end }}
 
-{{- if (and site.Params.homeInfoParams (eq .Title site.Title)) }}
-{{- partial "home_info.html" . }}
-{{- end }}
+{{ define "title" }}
+{{.Title }} | {{ .Site.Title }}
+{{ end }}
 
-{{- $pages := union .RegularPages site.RegularPages }}
-
-{{- if site.Params.ShowTagCloud }}
-{{- partial "tag_cloud.html" . }}
-{{- end }}
-
-{{- $paginator := .Paginate $pages }}
-{{- if and .Content (not (.Param "hiddenInHomeList")) }}
-<div class="first-entry home-info">
-    <div class="entry-content">
-        {{- .Content -}}
+{{ define "main" }}
+<div class="container pt-5" id="list-page">
+    <h2 class="text-center pb-2">{{.Title}}</h2>
+    
+    {{- if site.Params.ShowTagCloud }}
+    {{- partial "tag_cloud.html" . }}
+    {{- end }}
+    
+    <div class="row">
+        {{ range .Paginator.Pages }}
+        <div class="col-lg-4 col-md-6 my-3">
+            <div class="card-columns">
+                <div class="card h-100">
+                    {{ if and (not (.Site.Params.listPages.disableFeaturedImage | default false)) (.Params.image) }}
+                    <div class="card-header">
+                        <a href="{{ .RelPermalink }}">
+                            <img src="{{ .Params.image }}" class="card-img-top" alt="{{ .Title }}">
+                        </a>
+                    </div>
+                    {{ end }}
+                    <div class="card-body bg-transparent p-4 shadow-sm">
+                        <a href="{{ .RelPermalink }}" class="primary-font card-title">
+                            <h5 class="card-title bg-transparent" title="{{ .Title }}">{{ .Title | truncate 25 }}</h5>
+                        </a>
+                        <div class="card-text secondary-font">
+                            <p>{{ .Summary | truncate 300}}</p>
+                        </div>
+                        <div class="card-text">
+                            <div class="float-left secondary-font">
+                                <time>{{ .Date.Format "Jan 2006" }}</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ end }}
     </div>
-</div>
-{{- end }}
-
-{{- range $index, $page := $paginator.Pages }}
-
-{{- $class := "post-entry" }}
-
-{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
-{{- else if $page.Weight }}
-{{- $class = "post-entry tag-entry" }}
-{{- end }}
-
-<article class="{{ $class }}">
-    {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) | default false }}
-    {{- partial "cover.html" (dict "cxt" $page "IsSingle" false "isHidden" $isHidden) }}
-    <header class="entry-header">
-        <h2 class="entry-hint-parent">
-            <a href="{{ $page.Permalink }}">{{ $page.Title }}</a>
-            {{- if $page.Draft }}
-            <span class="entry-hint" title="Draft">
-                <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
-                    <path
-                        d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-                </svg>
-            </span>
+    
+    {{- if gt .Paginator.TotalPages 1 }}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {{- if .Paginator.HasPrev }}
+            <li class="page-item">
+                <a class="page-link" href="{{ .Paginator.Prev.URL | absURL }}">Previous</a>
+            </li>
             {{- end }}
-        </h2>
-    </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-    <div class="entry-content">
-        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-    </div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <div class="entry-footer">
-        {{- partial "post_meta.html" . -}}
-    </div>
-    {{- end }}
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
-{{- end }}
-
-{{- if gt $paginator.TotalPages 1 }}
-<footer class="page-footer">
-    <nav class="pagination">
-        {{- if $paginator.HasPrev }}
-        <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
-            «&nbsp;{{ i18n "prev_page" | default "Prev" }}
-        </a>
-        {{- end }}
-        {{- if $paginator.HasNext }}
-        <a class="next" href="{{ $paginator.Next.URL | absURL }}">
-            {{ i18n "next_page" | default "Next" }}&nbsp;»
-        </a>
-        {{- end }}
+            {{- if .Paginator.HasNext }}
+            <li class="page-item">
+                <a class="page-link" href="{{ .Paginator.Next.URL | absURL }}">Next</a>
+            </li>
+            {{- end }}
+        </ul>
     </nav>
-</footer>
-{{- end }}
-
-{{- end }}{{/* end main */}}
+    {{- end }}
+</div>
+{{ end }}
