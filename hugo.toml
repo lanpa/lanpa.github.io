@@ -28,6 +28,10 @@ theme = "hugo-profile"
   name = "rss"
   url = "/index.xml"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "RSS"]
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

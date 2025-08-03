@@ -7,7 +7,7 @@ title = "Tzu-Wei Huang"
 theme = "hugo-profile"
 
 [params]
-  enableSearch = true
+  disableSearch = false
   homeInfoParams = { Title = "Tzu-Wei Huang", Content = "Ph.D. student and lecturer at NTHU, interested in machine learning." }
   ShowReadingTime = true
   ShowShareButtons = true
@@ -30,6 +30,10 @@ theme = "hugo-profile"
 [[params.socialIcons]]
   name = "rss"
   url = "/index.xml"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "RSS"]
 
 [markup]
   [markup.goldmark]
