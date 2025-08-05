@@ -52,7 +52,7 @@ theme = "hugo-profile"
   weight = 2
 
 [[menu.main]]
-  name = "Work & Projects"
+  name = "Projects"
   url = "/work/"
   weight = 3
 

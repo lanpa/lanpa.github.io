@@ -1,31 +1,83 @@
 +++
 date = '2025-07-30T01:35:20+08:00'
 draft = false
-title = 'Work & Projects'
-tags = ["work", "projects", "professional"]
+title = 'Projects'
+tags = ["projects"]
 layout = "single"
 +++
 
-This section showcases my professional work, industry projects, and commercial experiences outside of academia.
+Explore my open-source contributions, personal projects, unboxing articles, and repair logs.
 
-## 💼 Professional Experience
 
-### Software Engineering
-- **DgS Computer** (Summer 2010) - Software Engineer
-  - Bug fixing and hardware maintenance
+<div class="row">
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/tensorboardX.png" class="card-img-top" alt="tensorboardX screenshot">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://github.com/lanpa/tensorboardX">tensorboardX</a></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/ESP32-BrakeTempCaster.png" class="card-img-top" alt="ESP32-BrakeTempCaster screenshot">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://github.com/lanpa/ESP32-BrakeTempCaster">ESP32-BrakeTempCaster</a></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/gopro-dashboard-overlay.png" class="card-img-top" alt="gopro-dashboard-overlay screenshot">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://github.com/lanpa/gopro-dashboard-overlay">gopro-dashboard-overlay</a></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/NTHUAIScaptcha.png" class="card-img-top" alt="NTHUAIScaptcha screenshot">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://github.com/lanpa/NTHUAIScaptcha">NTHUAIScaptcha</a></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/doubtedNewsSource.png" class="card-img-top" alt="doubtedNewsSource screenshot">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://github.com/lanpa/doubtedNewsSource">doubtedNewsSource</a></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/Folderizer.png" class="card-img-top" alt="Folderizer screenshot">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://github.com/lanpa/Folderizer">Folderizer</a></h5>
+      </div>
+    </div>
+  </div>
+</div>
 
-### Academic Teaching
-- **National Tsing-Hua University** (Spring 2014 - Present) - Adjunct Lecturer
-  - Teaching undergraduate courses in computer science
-
----
-
-## 🚀 Industry Projects
-
-Details about commercial and industry-related projects will be shared here.
-
-### Current Projects
-- Various consulting and development work
+<div class="row">
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/EwQz2fBbtIw.png" class="card-img-top" alt="YouTube thumbnail EwQz2fBbtIw">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://www.youtube.com/watch?v=EwQz2fBbtIw">YouTube Video</a></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="/images/projects/aps3ju3t1OY.png" class="card-img-top" alt="YouTube thumbnail aps3ju3t1OY">
+      <div class="card-body text-center">
+        <h5 class="card-title"><a href="https://www.youtube.com/watch?v=aps3ju3t1OY">YouTube Video</a></h5>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
