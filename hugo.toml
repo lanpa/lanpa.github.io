@@ -68,5 +68,6 @@ theme = "hugo-profile"
   url = "/tags/"
   weight = 6
 
-googleAnalytics = "G-WBXXLKTC4L"
-
+[services]
+  [services.googleAnalytics]
+    id = "G-WBXXLKTC4L"
