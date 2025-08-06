@@ -68,6 +68,11 @@ theme = "hugo-profile"
   url = "/tags/"
   weight = 6
 
+[[menu.main]]
+  name = "Fixing"
+  url = "/fixing/"
+  weight = 7
+
 [services]
   [services.googleAnalytics]
     id = "G-WBXXLKTC4L"
