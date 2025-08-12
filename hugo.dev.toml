@@ -7,8 +7,8 @@ title = "Tzu-Wei Huang"
 theme = "hugo-profile"
 
 [params]
-  disableSearch = false
-  homeInfoParams = { Title = "Tzu-Wei Huang", Content = "Ph.D. student and lecturer at NTHU, interested in machine learning." }
+  enableSearch = true
+  homeInfoParams = { Title = "Tzu-Wei Huang", Content = "CV, ML, open-source and cycling adventures." }
   ShowReadingTime = true
   ShowShareButtons = true
   ShowBreadCrumbs = true
@@ -70,3 +70,9 @@ theme = "hugo-profile"
   name = "Tags"
   url = "/tags/"
   weight = 6
+
+[[menu.main]]
+  name = "DIY & repairing"
+  url = "/fixing/"
+  weight = 7
+

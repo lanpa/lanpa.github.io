@@ -2,7 +2,7 @@
 title: "環騎台北"
 date: 2025-08-01
 draft: false
-description: "環騎台北挑戰賽指南與問答集"
+description: "環騎臺北河濱自行車挑戰認證指南與問答集"
 ShowToc: true
 TocOpen: true
 comments: true

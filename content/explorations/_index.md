@@ -3,7 +3,7 @@ date = '2025-07-30T01:35:20+08:00'
 draft = false
 title = 'Explorations'
 tags = ["explorations", "projects", "personal"]
-layout = "single"
+layout = "list"
 +++
 
 Welcome to my personal explorations and projects. Here I share experiences, experiments, and adventures outside of my academic work.
@@ -29,16 +29,4 @@ I have documented over 35 cycling adventures in 4K, exploring beautiful routes a
 - 🏙️ **Urban Cycling:** 台北市區, 河濱公園路線
 - 🚂 **Historic Routes:** 舊草嶺隧道, 深澳-九份
 
-### Recent Adventures
-
-- **[First Cycling Trip](/explorations/first-cycling-trip/)** - The story of my first multi-day cycling tour
-
 ---
-
-## 🛠️ Personal Projects
-
-This section includes personal experiments, hobby projects, and other explorations that interest me.
-
----
-
-*More explorations and projects will be added as I embark on new adventures and experiments.*

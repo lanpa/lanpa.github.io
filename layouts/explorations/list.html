@@ -1,0 +1,113 @@
+{{ define "head" }}
+<meta name="description" content="{{ .Title }} of {{ .Site.Title }}">
+<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/list.css" media="all">
+<link rel="stylesheet" href="{{.Site.Params.staticPath}}/css/single.css">
+<script defer src="{{.Site.Params.staticPath}}/fontawesome-6/all-6.4.2.js"></script>
+{{ end }}
+
+{{ define "title" }}
+{{.Title }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<!-- First show the _index.md content -->
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          {{ partial "breadcrumbs.html" . }}
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">{{ .Title }}</h1>
+          </div>
+
+          {{- if .Description }}
+          <div class="post-description mb-4">
+            {{ .Description }}
+          </div>
+          {{- end }}
+
+          {{- if .Content }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Then show the list of articles -->
+{{ $pages := .Pages }}
+<div class="container pt-5" id="list-page">
+    <h2 class="text-center pb-2">Recent Explorations</h2>
+    
+    {{ if gt (len $pages) 0 }}
+    <div class="row">
+        {{ range $pages }}
+        <div class="col-lg-4 col-md-6 my-3">
+            <div class="card-columns">
+                <div class="card h-100">
+                    {{ if and (not (.Site.Params.listPages.disableFeaturedImage | default false)) (.Params.image) }}
+                    <div class="card-header">
+                        <a href="{{ .RelPermalink }}">
+                            <img src="{{ .Params.image }}" class="card-img-top" alt="{{ .Title }}">
+                        </a>
+                    </div>
+                    {{ end }}
+                    <div class="card-body bg-transparent p-4 shadow-sm">
+                        <a href="{{ .RelPermalink }}" class="primary-font card-title">
+                            <h5 class="card-title bg-transparent" title="{{ .Title }}">{{ .Title | truncate 50 }}</h5>
+                        </a>
+                        <div class="card-text secondary-font">
+                            <p>{{ .Summary | truncate 200}}</p>
+                        </div>
+                        <div class="card-text">
+                            <div class="float-left secondary-font">
+                                <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+                            </div>
+                            {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+                            {{- if ($.GetTerms $tags) }}
+                            <div class="float-right">
+                                {{- range ($.GetTerms $tags) }}
+                                <span class="badge bg-secondary me-1">
+                                    {{ .LinkTitle }}
+                                </span>
+                                {{- end }}
+                            </div>
+                            {{- end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    {{ else }}
+    <p>No exploration articles found.</p>
+    {{ end }}
+</div>
+
+{{- $hideTags := .Params.hideTags | default false }}
+{{- if not $hideTags }}
+{{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+{{- if ($.GetTerms $tags) }}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-9">
+      <div class="tags mt-4">
+        <h5>Section Tags:</h5>
+        {{- range ($.GetTerms $tags) }}
+        <span class="badge bg-secondary me-1">
+          <a href="{{ .Permalink }}" class="text-white text-decoration-none">{{ .LinkTitle }}</a>
+        </span>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{- end }}
+{{- end }}
+
+{{ end }}
