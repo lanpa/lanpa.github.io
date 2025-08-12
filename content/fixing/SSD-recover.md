@@ -16,7 +16,7 @@ I stumbled upon a Samsung SSD firmware bug. One day my MacBook suddenly showed a
 - Able to show smartctl data: (It only last for 26TBW!!!)
 
 <p align="center">
-    <img src="images/image-2.png" alt="alt text" style="border:1px solid #ccc;" />
+    <img src="/images/fixing/image-2.png" alt="alt text" style="border:1px solid #ccc;" />
 </p>
 
 ## Solution
@@ -36,7 +36,7 @@ I stumbled upon a Samsung SSD firmware bug. One day my MacBook suddenly showed a
 - After running ddrescue, I was able to mount the recovered SSD and access most of my files.
 
 <p align="center">
-    <img src="images/image-1.png" alt="alt text" style="border:1px solid #ccc;" />
+    <img src="/images/fixing/image-1.png" alt="alt text" style="border:1px solid #ccc;" />
 </p>
 
 
@@ -45,5 +45,5 @@ I stumbled upon a Samsung SSD firmware bug. One day my MacBook suddenly showed a
 
 
 ## References
-![alt text](images/image-4.png)
-![alt text](images/image-3.png)
+![alt text](/images/fixing/image-4.png)
+![alt text](/images/fixing/image-3.png)
