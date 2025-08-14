@@ -15,6 +15,11 @@ theme = "hugo-profile"
   defaultTheme = "auto"
   # Comments system
   comments = true
+  # Custom scripts for language toggle
+  customScripts = '''
+<script src="/js/title-i18n.js"></script>
+<div id="lang-toggle" style="position: fixed; top: 10px; right: 60px; z-index: 1000; background: var(--entry); border: 1px solid var(--border); border-radius: 5px; padding: 5px 10px; cursor: pointer; font-size: 14px;">中/EN</div>
+'''
 
 [[params.socialIcons]]
   name = "github"

@@ -29,7 +29,13 @@
                     {{ end }}
                     <div class="card-body bg-transparent p-4 shadow-sm">
                         <a href="{{ .RelPermalink }}" class="primary-font card-title">
-                            <h5 class="card-title bg-transparent" title="{{ .Title }}">{{ .Title | truncate 25 }}</h5>
+                            <h5 class="card-title bg-transparent" title="{{ .Title }}"
+                                {{- if or .Params.title_en .Params.title_zh }}
+                                data-title-en="{{ .Params.title_en | default .Title }}" 
+                                data-title-zh="{{ .Params.title_zh | default .Title }}"
+                                {{- end }}>
+                                {{ .Title | truncate 25 }}
+                            </h5>
                         </a>
                         <div class="card-text secondary-font">
                             <p>{{ .Summary | truncate 300}}</p>

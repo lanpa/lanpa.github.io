@@ -1,5 +1,6 @@
 ---
 title: "Retrieve data from a locked out samsung SSD"
+title_zh: "從故障的三星SSD恢復資料"
 date: 2024-06-13
 summary: "Step-by-step guide to recover data from an SSD"
 tags: ["laptop", "repair", "hardware"]

@@ -58,7 +58,14 @@
                     {{ end }}
                     <div class="card-body bg-transparent p-4 shadow-sm">
                         <a href="{{ .RelPermalink }}" class="primary-font card-title">
-                            <h5 class="card-title bg-transparent" title="{{ .Title }}">{{ .Title | truncate 50 }}</h5>
+                            <h5 class="card-title bg-transparent" title="{{ .Title }}"
+                                {{- if .Params.title_en }}
+                                data-title-zh="{{ .Title }}" data-title-en="{{ .Params.title_en }}"
+                                {{- else if .Params.title_zh }}
+                                data-title-en="{{ .Title }}" data-title-zh="{{ .Params.title_zh }}"
+                                {{- end }}>
+                                {{ .Title | truncate 50 }}
+                            </h5>
                         </a>
                         <div class="card-text secondary-font">
                             <p>{{ .Summary | truncate 200}}</p>
