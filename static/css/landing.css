@@ -1,0 +1,10 @@
+/* Minimal styles for homepage landing */
+.landing {
+  min-height: 60vh;
+}
+.landing h1 {
+  font-family: 'Alata', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+.landing .social i {
+  font-size: 1.25rem;
+}

@@ -59,13 +59,13 @@ theme = "hugo-profile"
   weight = 3
 
 [[menu.main]]
-  name = "環騎台北"
-  url = "/velodash/"
+  name = "DIY & Fix"
+  url = "/fixing/"
   weight = 4
 
 [[menu.main]]
-  name = "About"
-  url = "/about/"
+  name = "環騎台北"
+  url = "/velodash/"
   weight = 5
 
 [[menu.main]]
@@ -74,8 +74,8 @@ theme = "hugo-profile"
   weight = 6
 
 [[menu.main]]
-  name = "DIY & repairing"
-  url = "/fixing/"
+  name = "About"
+  url = "/about/"
   weight = 7
 
 [services]
