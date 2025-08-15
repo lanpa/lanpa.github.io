@@ -1,0 +1,64 @@
+{{ define "head" }}
+  <meta name="description" content="Projects and case studies by {{ .Site.Title }}">
+  <link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/list.css" media="all">
+{{ end }}
+
+{{ define "title" }}
+  {{ .Title }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="container pt-5" id="list-page">
+  <h2 class="text-center pb-2">{{ .Title }}</h2>
+
+  <div class="mb-4">
+    {{ .Content }}
+  </div>
+
+  <div class="row">
+    {{ range .Paginator.Pages }}
+      <div class="col-lg-4 col-md-6 my-3">
+        <div class="card h-100">
+          {{ if and (not (.Site.Params.listPages.disableFeaturedImage | default false)) (.Params.image) }}
+          <div class="card-header">
+            <a href="{{ .RelPermalink }}">
+              <img src="{{ .Params.image }}" class="card-img-top" alt="{{ .Title }}">
+            </a>
+          </div>
+          {{ end }}
+          <div class="card-body bg-transparent p-4 shadow-sm">
+            <a href="{{ .RelPermalink }}" class="primary-font card-title">
+              <h5 class="card-title bg-transparent" title="{{ .Title }}">{{ .Title }}</h5>
+            </a>
+            <div class="card-text secondary-font">
+              <p>{{ .Summary }}</p>
+            </div>
+            <div class="card-text">
+              <div class="float-left secondary-font">
+                <time>{{ .Date.Format "Jan 2006" }}</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+  {{ if gt .Paginator.TotalPages 1 }}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {{ if .Paginator.HasPrev }}
+      <li class="page-item">
+        <a class="page-link" href="{{ .Paginator.Prev.URL | absURL }}">Previous</a>
+      </li>
+      {{ end }}
+      {{ if .Paginator.HasNext }}
+      <li class="page-item">
+        <a class="page-link" href="{{ .Paginator.Next.URL | absURL }}">Next</a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,37 @@
+{{ define "head" }}
+	<meta name="description" content="{{ .Site.Params.homeInfoParams.Content | default "" }}">
+	<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/landing.css" media="all">
+	<script defer src="{{ .Site.Params.staticPath }}/fontawesome-6/all-6.4.2.js"></script>
+{{ end }}
+
+{{ define "title" }}
+	{{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<section class="landing d-flex align-items-center py-5">
+	<div class="container text-center">
+		<h1 class="display-5 mb-3">{{ .Site.Params.homeInfoParams.Title | default .Site.Title }}</h1>
+		<p class="lead text-secondary mb-4">{{ .Site.Params.homeInfoParams.Content }}</p>
+
+		<div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+			{{ range .Site.Menus.main }}
+				<a class="btn btn-primary" href="{{ .URL }}">{{ .Name }}</a>
+			{{ end }}
+		</div>
+
+		{{ with .Site.Params.socialIcons }}
+		<div class="social mt-2">
+			{{ range . }}
+				<a class="mx-2" href="{{ .url }}" target="_blank" rel="noopener">
+					{{ if eq .name "github" }}<i class="fa-brands fa-github"></i>{{ end }}
+					{{ if eq .name "youtube" }}<i class="fa-brands fa-youtube"></i>{{ end }}
+					{{ if eq .name "rss" }}<i class="fa-solid fa-rss"></i>{{ end }}
+				</a>
+			{{ end }}
+		</div>
+		{{ end }}
+	</div>
+</section>
+
+{{ end }}
