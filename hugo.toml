@@ -29,6 +29,10 @@ theme = "hugo-profile"
   name = "youtube"
   url = "https://www.youtube.com/@twhuangtw"
 
+  [[params.socialIcons]]
+    name = "strava"
+    url = "https://strava.app.link/ClW1BqjVSVb"
+
 [[params.socialIcons]]
   name = "rss"
   url = "/index.xml"

@@ -5,24 +5,22 @@ title = 'About Me'
 comments = false
 +++
 
-I am a Ph.D. student and lecturer at National Tsing Hua University (NTHU), with a focus on machine learning research. My work spans various areas of computer vision and artificial intelligence.
+I earned BS and MD degrees from National Tsing Hua University (NTHU) and worked for a short time in Japan. Later, while pursuing my Ph.D., I also worked as a lecturer. My research interests focus on computer vision and machine learning. I left my Ph.D. program to work as a founding engineer at Berry-AI, a startup focusing on QSR technologies. As the company is now on track and generating steady revenue, I left with my stock options, waiting for a miracle :)
 
-## Research Interests
+I enjoy cycling and cooking. Recently, I've been exploring video editing. You can check out my YouTube channel, which contains my lecture videos and cycling adventures.
+
+## Interests
 
 - Machine Learning
 - Computer Vision
 - Deep Learning
 - Image Processing
-
-## Education
-
-Ph.D. Student at National Tsing Hua University (NTHU)
+- Build bike from scratch
+- Fix things
 
 ## Contact
 
-- **GitHub**: [github.com/lanpa](http://github.com/lanpa)
-- **Institution**: National Tsing Hua University
+orioles.bubbles.6i@icloud.com
+
 
 ## Recent Activities
-
-I am actively involved in teaching undergraduate courses in computer systems, programming, and information engineering. I also participate in conferences and workshops, sharing research findings and contributing to the academic community.
