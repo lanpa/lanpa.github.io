@@ -23,7 +23,7 @@
 		{{ with .Site.Params.socialIcons }}
 		<div class="social mt-2">
 			{{ range . }}
-				<a class="mx-2" href="{{ .url }}" target="_blank" rel="noopener">
+				<a class="mx-3 text-decoration-none" href="{{ .url }}" target="_blank" rel="noopener">
 					{{ if eq .name "github" }}<i class="fa-brands fa-github"></i>{{ end }}
 					{{ if eq .name "youtube" }}<i class="fa-brands fa-youtube"></i>{{ end }}
 					{{ if eq .name "strava" }}<i class="fa-brands fa-strava"></i>{{ end }}
