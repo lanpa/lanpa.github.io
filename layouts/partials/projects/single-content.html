@@ -1,0 +1,51 @@
+{{- /*
+  This partial is used as a common template for single project pages (academic, explorations, work, fixing)
+  Parameters:
+    - . (context): The page context
+*/ -}}
+
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          {{ partial "breadcrumbs.html" . }}
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">{{ .Title }}</h1>
+          </div>
+
+          {{- if .Description }}
+          <div class="post-description mb-4">
+            {{ .Description }}
+          </div>
+          {{- end }}
+
+          {{- if .Content }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          {{- end }}
+
+          {{- $hideTags := .Params.hideTags | default false }}
+          {{- if not $hideTags }}
+          {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+          {{- if ($.GetTerms $tags) }}
+          <div class="tags mt-4">
+            <h5>Tags:</h5>
+            {{- range ($.GetTerms $tags) }}
+            <span class="badge bg-secondary me-1">
+              <a href="{{ .Permalink }}" class="text-white text-decoration-none">{{ .LinkTitle }}</a>
+            </span>
+            {{- end }}
+          </div>
+          {{- end }}
+          {{- end }}
+
+          {{- if (.Param "comments") }}
+          {{- partial "comments.html" . }}
+          {{- end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
