@@ -1,8 +1,8 @@
 +++
 date = '2023-05-01'
-title = 'YouTube: EwQz2fBbtIw'
+title = '如何修復鬆脫的羽球拍'
 tags = ['projects', 'video']
-image = '/images/projects/EwQz2fBbtIw.png'
+image = '/images/fixing/badminton.png'
 draft = false
 +++
 

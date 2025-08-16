@@ -2,7 +2,7 @@
 date = '2016-04-01'
 title = 'NTHUAIScaptcha'
 tags = ['projects', 'python']
-image = '/images/projects/NTHUAIScaptcha.png'
+image = '/images/projects/NTHUAIScaptcha.jpg'
 draft = false
 +++
 
