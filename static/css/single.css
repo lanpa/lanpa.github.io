@@ -1,0 +1,46 @@
+/* Styles for image figures and captions */
+figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  figcaption {
+    color: #ccc;
+  }
+  
+  figure img {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Content area styling */
+.content {
+  line-height: 1.7;
+}
+
+.content h1, .content h2, .content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content ul, .content ol {
+  margin-bottom: 1rem;
+}

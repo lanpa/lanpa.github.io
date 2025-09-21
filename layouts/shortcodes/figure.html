@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default (.Get "caption") -}}
+{{- $caption := .Get "caption" | default $alt -}}
+{{- $class := .Get "class" | default "" -}}
+
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }} />
+  {{- if $caption }}
+  <figcaption>{{ $caption | markdownify }}</figcaption>
+  {{- end }}
+</figure>
