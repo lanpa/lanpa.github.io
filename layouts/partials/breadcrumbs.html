@@ -1,20 +1,16 @@
-{{- if gt .Parent.Kind "section" }}
-<nav aria-label="breadcrumb" class="mb-3">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-    </li>
-    {{- template "breadcrumb" (dict "page" . "value" .Parent) }}
-    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
-  </ol>
+{{- if and .Parent (eq .Parent.Kind "section") }}
+<nav class="lp-breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+  {{- template "lp-breadcrumb-trail" (dict "page" . "value" .Parent) }}
+  <span class="lp-breadcrumb-sep">/</span>
+  <span class="lp-breadcrumb-current">{{ .Title }}</span>
 </nav>
 {{- end }}
 
-{{- define "breadcrumb" }}
-{{- if .value.Parent }}
-{{- template "breadcrumb" (dict "page" .page "value" .value.Parent) }}
-{{- end }}
-<li class="breadcrumb-item">
-  <a href="{{ .value.Permalink }}">{{ .value.Title }}</a>
-</li>
-{{- end }}
+{{- define "lp-breadcrumb-trail" -}}
+{{- if and .value.Parent (ne .value.Parent.Kind "home") -}}
+{{ template "lp-breadcrumb-trail" (dict "page" .page "value" .value.Parent) }}
+{{- end -}}
+<span class="lp-breadcrumb-sep">/</span>
+<a href="{{ .value.Permalink }}">{{ .value.Title }}</a>
+{{- end -}}

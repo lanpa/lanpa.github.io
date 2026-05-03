@@ -1,16 +1,4 @@
-{{ define "head" }}
-<meta name="description" content="{{ .Title }} of {{ .Site.Title }}">
-<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/list.css" media="all">
-<link rel="stylesheet" href="{{.Site.Params.staticPath}}/css/single.css">
-<script defer src="{{.Site.Params.staticPath}}/fontawesome-6/all-6.4.2.js"></script>
-{{ end }}
-
-{{ define "title" }}
-{{.Title }} | {{ .Site.Title }}
-{{ end }}
-
 {{ define "main" }}
-{{ .Scratch.Set "sectionTitle" "DIY & Fixing Projects" }}
 {{ .Scratch.Set "emptyMessage" "No DIY or fixing projects found." }}
 {{ partial "projects/list-content.html" . }}
 {{ end }}

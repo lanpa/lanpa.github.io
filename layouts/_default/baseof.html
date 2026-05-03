@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.Language.Lang }}{{ . }}{{ else }}en{{ end }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.homeInfoParams.Content | default "" }}{{ end }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ "/css/landing.css" | relURL }}" media="all">
+  <script defer src="{{ "/fontawesome-6/all-6.4.2.js" | relURL }}"></script>
+
+  {{ template "_internal/google_analytics.html" . }}
+
+  {{ block "head" . }}{{ end }}
+</head>
+<body class="lp-body">
+<div class="lp">
+
+  {{/* ── Site nav ─────────────────────────────────────────── */}}
+  <nav class="lp-nav">
+    <div class="lp-nav-inner">
+      <a class="lp-nav-wordmark" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+      <ul class="lp-nav-links">
+        {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+      <div class="lp-nav-search">
+        <input type="search" id="lp-search-input" placeholder="Search…" aria-label="Search" autocomplete="off">
+        <div class="lp-nav-search-results" id="lp-search-results" role="listbox" hidden></div>
+      </div>
+      <button class="lp-nav-lang" type="button" id="lang-toggle" aria-label="Toggle language">中/EN</button>
+    </div>
+  </nav>
+
+  {{/* ── Page content ─────────────────────────────────────── */}}
+  <main class="lp-page">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{/* ── Footer ──────────────────────────────────────────── */}}
+  <footer class="lp-footer">
+    <div class="lp-footer-inner">
+      <div>
+        <div class="lp-footer-brand">{{ .Site.Title }}</div>
+        <div class="lp-footer-meta">
+          Lecturer · NTHU · Hsinchu, Taiwan<br>
+          ML researcher · Open-source author · Cyclist
+        </div>
+        {{ with .Site.Params.socialIcons }}
+        <div class="lp-footer-social">
+          {{ range . }}
+            <a href="{{ .url }}" target="_blank" rel="noopener" aria-label="{{ .name }}">
+              {{ if eq .name "github" }}<i class="fa-brands fa-github"></i>{{ end }}
+              {{ if eq .name "youtube" }}<i class="fa-brands fa-youtube"></i>{{ end }}
+              {{ if eq .name "strava" }}<i class="fa-brands fa-strava"></i>{{ end }}
+              {{ if eq .name "rss" }}<i class="fa-solid fa-rss"></i>{{ end }}
+            </a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <ul class="lp-footer-links">
+        {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+      <div class="lp-footer-meta" style="text-align:right;">
+        © {{ now.Year }} All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="{{ "/js/title-i18n.js" | relURL }}"></script>
+<script src="{{ "/js/search.js" | relURL }}" defer></script>
+</body>
+</html>

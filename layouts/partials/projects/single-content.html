@@ -1,51 +1,49 @@
-{{- /*
-  This partial is used as a common template for single project pages (academic, explorations, work, fixing)
-  Parameters:
-    - . (context): The page context
-*/ -}}
+{{- /* Common single-article template */ -}}
+<article class="lp-page">
+  <div class="lp-article">
 
-<section id="single">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-12 col-lg-9">
-        <div class="pr-lg-4">
-          {{ partial "breadcrumbs.html" . }}
-          <div class="title mb-5">
-            <h1 class="text-center mb-4">{{ .Title }}</h1>
-          </div>
+    {{ partial "breadcrumbs.html" . }}
 
-          {{- if .Description }}
-          <div class="post-description mb-4">
-            {{ .Description }}
-          </div>
-          {{- end }}
-
-          {{- if .Content }}
-          <div class="content">
-            {{ .Content }}
-          </div>
-          {{- end }}
-
-          {{- $hideTags := .Params.hideTags | default false }}
-          {{- if not $hideTags }}
-          {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-          {{- if ($.GetTerms $tags) }}
-          <div class="tags mt-4">
-            <h5>Tags:</h5>
-            {{- range ($.GetTerms $tags) }}
-            <span class="badge bg-secondary me-1">
-              <a href="{{ .Permalink }}" class="text-white text-decoration-none">{{ .LinkTitle }}</a>
-            </span>
-            {{- end }}
-          </div>
-          {{- end }}
-          {{- end }}
-
-          {{- if (.Param "comments") }}
-          {{- partial "comments.html" . }}
-          {{- end }}
-        </div>
+    <header class="lp-article-head">
+      {{- with .Parent }}{{- if eq .Kind "section" }}
+      <div class="eyebrow">{{ .Title }}</div>
+      {{- end }}{{- end }}
+      <h1 class="lp-page-title"
+        {{- if or .Params.title_en .Params.title_zh }}
+        data-title-en="{{ .Params.title_en | default .Title }}"
+        data-title-zh="{{ .Params.title_zh | default .Title }}"
+        {{- end }}>{{ .Title }}</h1>
+      <div class="lp-article-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        {{- with .ReadingTime }} · {{ . }} min read{{ end }}
       </div>
+      {{- with .Description }}
+      <p class="lp-page-lead">{{ . }}</p>
+      {{- end }}
+    </header>
+
+    {{- if .Content }}
+    <div class="lp-prose">{{ .Content }}</div>
+    {{- end }}
+
+    {{- $hideTags := .Params.hideTags | default false }}
+    {{- if not $hideTags }}
+    {{- $tagsTax := .Language.Params.Taxonomies.tag | default "tags" }}
+    {{- with ($.GetTerms $tagsTax) }}
+    <div class="lp-tags-inline">
+      <span class="lp-tags-inline-label">Tags</span>
+      {{- range . }}
+      <a class="lp-tag" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{- end }}
     </div>
+    {{- end }}
+    {{- end }}
+
+    {{- if (.Param "comments") }}
+    <div class="lp-comments">
+      {{ partial "comments.html" . }}
+    </div>
+    {{- end }}
+
   </div>
-</section>
+</article>

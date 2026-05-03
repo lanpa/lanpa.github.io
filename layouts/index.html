@@ -1,38 +1,195 @@
-{{ define "head" }}
-	<meta name="description" content="{{ .Site.Params.homeInfoParams.Content | default "" }}">
-	<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/landing.css" media="all">
-	<script defer src="{{ .Site.Params.staticPath }}/fontawesome-6/all-6.4.2.js"></script>
-{{ end }}
+<!DOCTYPE html>
+<html lang="{{ with .Site.Language.Lang }}{{ . }}{{ else }}en{{ end }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Site.Params.homeInfoParams.Content | default "" }}">
 
-{{ define "title" }}
-	{{ .Site.Title }}
-{{ end }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-{{ define "main" }}
-<section class="landing d-flex align-items-center py-5">
-	<div class="container text-center">
-		<h1 class="display-5 mb-3">{{ .Site.Params.homeInfoParams.Title | default .Site.Title }}</h1>
-		<p class="lead text-secondary mb-4">{{ .Site.Params.homeInfoParams.Content }}</p>
+  <link rel="stylesheet" href="{{ "/css/landing.css" | relURL }}" media="all">
+  <script defer src="{{ "/fontawesome-6/all-6.4.2.js" | relURL }}"></script>
 
-		<div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-			{{ range .Site.Menus.main }}
-				<a class="btn btn-primary" href="{{ .URL }}">{{ .Name }}</a>
-			{{ end }}
-		</div>
+  {{ template "_internal/google_analytics.html" . }}
+</head>
+<body class="lp-body">
+<div class="lp">
 
-		{{ with .Site.Params.socialIcons }}
-		<div class="social mt-2">
-			{{ range . }}
-				<a class="mx-3 text-decoration-none" href="{{ .url }}" target="_blank" rel="noopener">
-					{{ if eq .name "github" }}<i class="fa-brands fa-github"></i>{{ end }}
-					{{ if eq .name "youtube" }}<i class="fa-brands fa-youtube"></i>{{ end }}
-					{{ if eq .name "strava" }}<i class="fa-brands fa-strava"></i>{{ end }}
-					{{ if eq .name "rss" }}<i class="fa-solid fa-rss"></i>{{ end }}
-				</a>
-			{{ end }}
-		</div>
-		{{ end }}
-	</div>
-</section>
+  {{/* ── Site nav ─────────────────────────────────────────── */}}
+  <nav class="lp-nav">
+    <div class="lp-nav-inner">
+      <a class="lp-nav-wordmark" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+      <ul class="lp-nav-links">
+        {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+      <div class="lp-nav-search">
+        <input type="search" id="lp-search-input" placeholder="Search…" aria-label="Search" autocomplete="off">
+        <div class="lp-nav-search-results" id="lp-search-results" role="listbox" hidden></div>
+      </div>
+      <button class="lp-nav-lang" type="button" id="lang-toggle" aria-label="Toggle language">中/EN</button>
+    </div>
+  </nav>
 
-{{ end }}
+  {{/* ── Hero ─────────────────────────────────────────────── */}}
+  <section class="lp-hero">
+    <div>
+      <div class="eyebrow lp-hero-eyebrow">Personal site &amp; notebook</div>
+      <h1 class="lp-hero-title">
+        CV, ML,<br>
+        open&#8209;source<br>
+        &amp; <em>cycling</em><br>
+        adventures.
+      </h1>
+      <p class="lp-hero-subtitle">
+        Lecturer at NTHU. Founding engineer at Berry-AI.
+        I write about machine learning, computer vision,
+        things I build, and things I fix.
+      </p>
+      <div class="lp-hero-links">
+        <a class="btn btn-primary" href="{{ "/academic/" | relURL }}">Academic work</a>
+        <a class="btn btn-secondary" href="{{ "/about/" | relURL }}">About me</a>
+      </div>
+    </div>
+    <div class="lp-hero-aside">
+      <div class="lp-hero-stat-grid">
+        {{ $pubs       := len (where .Site.RegularPages "Section" "academic") }}
+        {{ $videos     := len (where .Site.RegularPages "Section" "academic-videos") }}
+        {{ $explore    := len (where .Site.RegularPages "Section" "explorations") }}
+        {{ $cyclingVid := len (where .Site.RegularPages "Section" "cycling-videos") }}
+        <div class="lp-hero-stat">
+          <div class="lp-hero-stat-num">{{ if $pubs }}{{ $pubs }}{{ else }}3{{ end }}<span>+</span></div>
+          <div class="lp-hero-stat-label">Publications</div>
+        </div>
+        <div class="lp-hero-stat">
+          <div class="lp-hero-stat-num">{{ if $videos }}{{ $videos }}{{ else }}114{{ end }}</div>
+          <div class="lp-hero-stat-label">Lecture videos</div>
+        </div>
+        <div class="lp-hero-stat">
+          <div class="lp-hero-stat-num">{{ if $cyclingVid }}{{ $cyclingVid }}{{ else }}∞{{ end }}</div>
+          <div class="lp-hero-stat-label">Rides logged</div>
+        </div>
+        <div class="lp-hero-stat">
+          <div class="lp-hero-stat-num">1</div>
+          <div class="lp-hero-stat-label">Startup exit</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ── Recent Explorations ─────────────────────────────── */}}
+  <div class="lp-section-break"></div>
+  <div class="lp-section-header">
+    <div>
+      <div class="eyebrow">Writing</div>
+      <h2>Recent Explorations</h2>
+    </div>
+    <a class="lp-section-header-link" href="{{ "/explorations/" | relURL }}">All posts →</a>
+  </div>
+  <div class="lp-post-list">
+    {{ $recent := first 3 (where .Site.RegularPages "Section" "explorations") }}
+    {{ range $recent }}
+      <a class="lp-post-item" href="{{ .RelPermalink }}">
+        <div class="lp-post-date">{{ .Date.Format "2006 Jan" }}</div>
+        <div>
+          <div class="lp-post-tag">Exploration</div>
+          <div class="lp-post-title">{{ .Title }}</div>
+          {{ with .Description }}<p class="lp-post-excerpt">{{ . }}</p>
+          {{ else }}{{ with .Summary }}<p class="lp-post-excerpt">{{ . | plainify | truncate 180 }}</p>{{ end }}{{ end }}
+        </div>
+        <div class="lp-post-thumb">
+          {{ with .Params.image }}
+            <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+          {{ else }}
+            <span class="lp-post-thumb-label">photo / illustration</span>
+          {{ end }}
+        </div>
+      </a>
+    {{ end }}
+  </div>
+
+  {{/* ── Explore the site ────────────────────────────────── */}}
+  <div class="lp-section-break"></div>
+  <div class="lp-section-header">
+    <div>
+      <div class="eyebrow">Navigate</div>
+      <h2>Explore the site</h2>
+    </div>
+  </div>
+  <div class="lp-explore-grid">
+    {{ $cards := slice
+      (dict "url" "/academic/"     "icon" "◎" "title" "Academic"     "desc" "Publications, talks, and lecture videos from NTHU.")
+      (dict "url" "/work/"         "icon" "◈" "title" "Projects"     "desc" "Open-source tools, research software, and startup work.")
+      (dict "url" "/fixing/"       "icon" "◧" "title" "DIY &amp; Fix" "desc" "Bikes, machines, electronics — fixing things with intention.")
+      (dict "url" "/velodash/"     "icon" "◍" "title" "環騎台北"      "desc" "Cycling routes and adventures around Taipei and beyond.")
+      (dict "url" "/explorations/" "icon" "◉" "title" "Explorations" "desc" "Long-form writing on ML, cooking, and everything between.")
+      (dict "url" "/about/"        "icon" "◑" "title" "About"        "desc" "Background, interests, and how to get in touch.")
+    }}
+    {{ range $cards }}
+      <a class="lp-explore-card" href="{{ .url | relURL }}">
+        <div class="lp-explore-card-icon">{{ .icon }}</div>
+        <h3>{{ .title | safeHTML }}</h3>
+        <p>{{ .desc | safeHTML }}</p>
+      </a>
+    {{ end }}
+  </div>
+
+  {{/* ── Inverse callout: tensorboardX ───────────────────── */}}
+  <section class="lp-section-inverse">
+    <div class="lp-section-inverse-inner">
+      <div class="eyebrow">Open source</div>
+      <h2>tensorboardX — TensorBoard logging for PyTorch researchers</h2>
+      <p>
+        A utility library that brings TensorBoard's visualisation capabilities to PyTorch,
+        used by thousands of researchers worldwide.
+      </p>
+      <div class="lp-hero-links">
+        <a class="btn btn-on-dark" href="https://github.com/lanpa/tensorboardX" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-on-dark btn-secondary" href="{{ "/work/" | relURL }}">All projects</a>
+      </div>
+    </div>
+  </section>
+
+  {{/* ── Footer ──────────────────────────────────────────── */}}
+  <footer class="lp-footer">
+    <div class="lp-footer-inner">
+      <div>
+        <div class="lp-footer-brand">{{ .Site.Title }}</div>
+        <div class="lp-footer-meta">
+          Lecturer · NTHU · Hsinchu, Taiwan<br>
+          ML researcher · Open-source author · Cyclist
+        </div>
+        {{ with .Site.Params.socialIcons }}
+        <div class="lp-footer-social">
+          {{ range . }}
+            <a href="{{ .url }}" target="_blank" rel="noopener" aria-label="{{ .name }}">
+              {{ if eq .name "github" }}<i class="fa-brands fa-github"></i>{{ end }}
+              {{ if eq .name "youtube" }}<i class="fa-brands fa-youtube"></i>{{ end }}
+              {{ if eq .name "strava" }}<i class="fa-brands fa-strava"></i>{{ end }}
+              {{ if eq .name "rss" }}<i class="fa-solid fa-rss"></i>{{ end }}
+            </a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <ul class="lp-footer-links">
+        {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+      <div class="lp-footer-meta" style="text-align:right;">
+        © {{ now.Year }} All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="{{ "/js/title-i18n.js" | relURL }}"></script>
+<script src="{{ "/js/search.js" | relURL }}" defer></script>
+</body>
+</html>

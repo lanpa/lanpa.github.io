@@ -1,108 +1,66 @@
 {{- /*
-  This partial is used as a common template for project sections (academic, explorations, work, fixing)
-  Parameters:
-    - . (context): The page context
-    - $sectionTitle (string): Title to display for the section (e.g., "Recent Projects", "Recent Explorations")
-    - $emptyMessage (string): Message to display when no articles are found
+  Common section list template (academic, explorations, work, fixing,
+  academic-videos, cycling-videos, velodash, ...).
+  Optional scratch values:
+    - sectionTitle  override for empty-state heading (legacy)
+    - emptyMessage  shown when no children
 */ -}}
+<div class="lp-page">
 
-<!-- First show the _index.md content -->
-<section id="single">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-12 col-lg-9">
-        <div class="pr-lg-4">
-          {{ partial "breadcrumbs.html" . }}
-          <div class="title mb-5">
-            <h1 class="text-center mb-4">{{ .Title }}</h1>
-          </div>
+  <header class="lp-page-head">
+    <div class="eyebrow">{{ .Section | humanize | default "Section" }}</div>
+    <h1 class="lp-page-title">{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="lp-page-lead">{{ . }}</p>
+    {{- end }}
+    {{- if .Content }}
+    <div class="lp-prose lp-page-intro">{{ .Content }}</div>
+    {{- end }}
+  </header>
 
-          {{- if .Description }}
-          <div class="post-description mb-4">
-            {{ .Description }}
-          </div>
-          {{- end }}
+  {{- $pages := .Pages }}
+  {{- if and .Paginator (gt .Paginator.TotalPages 0) }}{{ $pages = .Paginator.Pages }}{{ end }}
 
-          {{- if .Content }}
-          <div class="content">
-            {{ .Content }}
-          </div>
-          {{- end }}
-        </div>
+  {{- if gt (len $pages) 0 }}
+  <div class="lp-card-grid">
+    {{- range $pages }}
+    <a class="lp-card" href="{{ .RelPermalink }}">
+      <div class="lp-card-image">
+        {{- with .Params.image }}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+        {{- else }}
+        <div class="lp-card-image-placeholder"></div>
+        {{- end }}
       </div>
-    </div>
+      <div class="lp-card-body">
+        <div class="lp-card-meta">{{ .Date.Format "Jan 2006" }}</div>
+        <h3 class="lp-card-title"
+          {{- if or .Params.title_en .Params.title_zh }}
+          data-title-en="{{ .Params.title_en | default .Title }}"
+          data-title-zh="{{ .Params.title_zh | default .Title }}"
+          {{- end }}>{{ .Title }}</h3>
+        {{- with .Description }}
+        <p class="lp-card-summary">{{ . }}</p>
+        {{- else }}{{- with .Summary }}
+        <p class="lp-card-summary">{{ . | plainify | truncate 160 }}</p>
+        {{- end }}{{- end }}
+      </div>
+    </a>
+    {{- end }}
   </div>
-</section>
-
-<!-- Then show the list of articles -->
-{{ $pages := .Pages }}
-<div class="container pt-5" id="list-page">
-    <h2 class="text-center pb-2">{{ .Params.listTitle | default (.Scratch.Get "sectionTitle") }}</h2>
-    
-    {{ if gt (len $pages) 0 }}
-    <div class="row">
-        {{ range $pages }}
-        <div class="col-lg-4 col-md-6 my-3">
-            <div class="card-columns">
-                <div class="card h-100">
-                    {{ if and (not (.Site.Params.listPages.disableFeaturedImage | default false)) (.Params.image) }}
-                    <div class="card-header">
-                        <a href="{{ .RelPermalink }}">
-                            <img src="{{ .Params.image }}" class="card-img-top" alt="{{ .Title }}">
-                        </a>
-                    </div>
-                    {{ end }}
-                    <div class="card-body bg-transparent p-4 shadow-sm">
-                        <a href="{{ .RelPermalink }}" class="primary-font card-title">
-                            <h5 class="card-title bg-transparent" title="{{ .Title }}"
-                                {{- if .Params.title_en }}
-                                data-title-zh="{{ .Title }}" data-title-en="{{ .Params.title_en }}"
-                                {{- else if .Params.title_zh }}
-                                data-title-en="{{ .Title }}" data-title-zh="{{ .Params.title_zh }}"
-                                {{- end }}>
-                                {{ .Title | truncate 50 }}
-                            </h5>
-                        </a>
-                        <div class="card-text secondary-font">
-                            <p>{{ .Summary | truncate 200}}</p>
-                        </div>
-                        <div class="card-text">
-                            <div class="float-left secondary-font">
-                                <time>{{ .Date.Format "Jan 2, 2006" }}</time>
-                            </div>
-                            {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-                            {{- if ($.GetTerms $tags) }}
-                            <div class="float-right">
-                                {{- range ($.GetTerms $tags) }}
-                                <span class="badge bg-secondary me-1">
-                                    {{ .LinkTitle }}
-                                </span>
-                                {{- end }}
-                            </div>
-                            {{- end }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{ end }}
-    </div>
-    {{ else }}
-    <p>{{ (.Scratch.Get "emptyMessage") | default "No articles found." }}</p>
-    {{ end }}
-</div>
-
-{{- $hideTags := .Params.hideTags | default false }}
-{{- if not $hideTags }}
-{{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-{{- if ($.GetTerms $tags) }}
-<div class="tags mt-4">
-  <h5>Section Tags:</h5>
-  {{- range ($.GetTerms $tags) }}
-  <span class="badge bg-secondary me-1">
-    <a href="{{ .Permalink }}" class="text-white text-decoration-none">{{ .LinkTitle }}</a>
-  </span>
+  {{- else }}
+  <p class="lp-empty">{{ (.Scratch.Get "emptyMessage") | default "No articles found." }}</p>
   {{- end }}
+
+  {{- if and .Paginator (gt .Paginator.TotalPages 1) }}
+  <nav class="lp-pagination" aria-label="Page navigation">
+    {{- if .Paginator.HasPrev }}
+    <a href="{{ .Paginator.Prev.URL | absURL }}">← Previous</a>
+    {{- end }}
+    {{- if .Paginator.HasNext }}
+    <a href="{{ .Paginator.Next.URL | absURL }}">Next →</a>
+    {{- end }}
+  </nav>
+  {{- end }}
+
 </div>
-{{- end }}
-{{- end }}

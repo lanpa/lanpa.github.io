@@ -1,72 +1,59 @@
-{{ define "head" }}
-<meta name="description" content="{{ .Title }} of {{ .Site.Title }}">
-<link rel="stylesheet" href="{{ .Site.Params.staticPath }}/css/list.css" media="all">
-{{ end }}
-
-{{ define "title" }}
-{{.Title }} | {{ .Site.Title }}
-{{ end }}
-
 {{ define "main" }}
-<div class="container pt-5" id="list-page">
-    <h2 class="text-center pb-2">{{.Title}}</h2>
-    
-    {{- if site.Params.ShowTagCloud }}
-    {{- partial "tag_cloud.html" . }}
+<div class="lp-page">
+
+  <header class="lp-page-head">
+    <div class="eyebrow">{{ if eq .Kind "taxonomy" }}{{ .Data.Singular | humanize }}{{ else if eq .Kind "term" }}Tag{{ else }}{{ .Section | humanize }}{{ end }}</div>
+    <h1 class="lp-page-title">{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="lp-page-lead">{{ . }}</p>
     {{- end }}
-    
-    <div class="row">
-        {{ range .Paginator.Pages }}
-        <div class="col-lg-4 col-md-6 my-3">
-            <div class="card-columns">
-                <div class="card h-100">
-                    {{ if and (not (.Site.Params.listPages.disableFeaturedImage | default false)) (.Params.image) }}
-                    <div class="card-header">
-                        <a href="{{ .RelPermalink }}">
-                            <img src="{{ .Params.image }}" class="card-img-top" alt="{{ .Title }}">
-                        </a>
-                    </div>
-                    {{ end }}
-                    <div class="card-body bg-transparent p-4 shadow-sm">
-                        <a href="{{ .RelPermalink }}" class="primary-font card-title">
-                            <h5 class="card-title bg-transparent" title="{{ .Title }}"
-                                {{- if or .Params.title_en .Params.title_zh }}
-                                data-title-en="{{ .Params.title_en | default .Title }}" 
-                                data-title-zh="{{ .Params.title_zh | default .Title }}"
-                                {{- end }}>
-                                {{ .Title | truncate 25 }}
-                            </h5>
-                        </a>
-                        <div class="card-text secondary-font">
-                            <p>{{ .Summary | truncate 300}}</p>
-                        </div>
-                        <div class="card-text">
-                            <div class="float-left secondary-font">
-                                <time>{{ .Date.Format "Jan 2006" }}</time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{ end }}
-    </div>
-    
-    {{- if gt .Paginator.TotalPages 1 }}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {{- if .Paginator.HasPrev }}
-            <li class="page-item">
-                <a class="page-link" href="{{ .Paginator.Prev.URL | absURL }}">Previous</a>
-            </li>
-            {{- end }}
-            {{- if .Paginator.HasNext }}
-            <li class="page-item">
-                <a class="page-link" href="{{ .Paginator.Next.URL | absURL }}">Next</a>
-            </li>
-            {{- end }}
-        </ul>
-    </nav>
+    {{- if .Content }}
+    <div class="lp-prose lp-page-intro">{{ .Content }}</div>
     {{- end }}
+  </header>
+
+  {{- if and (eq .Kind "taxonomy") site.Params.ShowTagCloud }}
+  {{ partial "tag_cloud.html" . }}
+  {{- end }}
+
+  {{- $pages := .Paginator.Pages }}
+  {{- if gt (len $pages) 0 }}
+  <div class="lp-card-grid">
+    {{- range $pages }}
+    <a class="lp-card" href="{{ .RelPermalink }}">
+      <div class="lp-card-image">
+        {{- with .Params.image }}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+        {{- else }}
+        <div class="lp-card-image-placeholder"></div>
+        {{- end }}
+      </div>
+      <div class="lp-card-body">
+        <div class="lp-card-meta">{{ .Date.Format "Jan 2006" }}</div>
+        <h3 class="lp-card-title"
+          {{- if or .Params.title_en .Params.title_zh }}
+          data-title-en="{{ .Params.title_en | default .Title }}"
+          data-title-zh="{{ .Params.title_zh | default .Title }}"
+          {{- end }}>{{ .Title }}</h3>
+        {{- with .Description }}
+        <p class="lp-card-summary">{{ . }}</p>
+        {{- else }}{{- with .Summary }}
+        <p class="lp-card-summary">{{ . | plainify | truncate 160 }}</p>
+        {{- end }}{{- end }}
+      </div>
+    </a>
+    {{- end }}
+  </div>
+  {{- else }}
+  <p class="lp-empty">No items found.</p>
+  {{- end }}
+
+  {{- if gt .Paginator.TotalPages 1 }}
+  <nav class="lp-pagination" aria-label="Page navigation">
+    {{- if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL | absURL }}">← Previous</a>{{- end }}
+    {{- if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL | absURL }}">Next →</a>{{- end }}
+  </nav>
+  {{- end }}
+
 </div>
 {{ end }}
