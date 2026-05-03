@@ -6,6 +6,8 @@ description: "環騎臺北河濱自行車挑戰認證指南與問答集"
 ShowToc: true
 TocOpen: true
 comments: true
+aliases:
+  - /velodash/
 ---
 
 <figure style="text-align: center; margin: 1.5rem 0;">
@@ -19,7 +21,7 @@ comments: true
 
 歡迎來到環騎台北挑戰賽的完整指南！這裡包含了挑戰教學、常見問題解答，以及完整的騎乘影片記錄。
 
-## ❓ AI協助整理的[Q&A](qa).
+## ❓ AI協助整理的[Q&A](/explorations/velodash-qa/).
 ---
 
 ## 🎥 挑戰教學影片
@@ -29,7 +31,6 @@ comments: true
 > - 挑戰騎與輕鬆騎的差異
 > - 必要的準備工作
 > - 常見陷阱與注意事項
-
 
 
 

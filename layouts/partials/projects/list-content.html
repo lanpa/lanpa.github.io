@@ -19,7 +19,8 @@
   </header>
 
   {{- $pages := .Pages }}
-  {{- if and .Paginator (gt .Paginator.TotalPages 0) }}{{ $pages = .Paginator.Pages }}{{ end }}
+  {{- $pag := .Paginate .Pages }}
+  {{- if gt $pag.TotalPages 0 }}{{ $pages = $pag.Pages }}{{ end }}
 
   {{- if gt (len $pages) 0 }}
   <div class="lp-card-grid">

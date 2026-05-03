@@ -8,6 +8,8 @@ weight: 1
 comments: true
 ShowToc: false
 hideTags: true
+aliases:
+  - /velodash/qa/
 ---
 
 ## 📋 快速導航

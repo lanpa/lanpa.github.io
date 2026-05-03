@@ -71,17 +71,12 @@ theme = "hugo-profile"
   weight = 4
 
 [[menu.main]]
-  name = "環騎台北"
-  url = "/velodash/"
-  weight = 5
-
-[[menu.main]]
   name = "Tags"
   url = "/tags/"
-  weight = 6
+  weight = 5
 
 [[menu.main]]
   name = "About"
   url = "/about/"
-  weight = 7
+  weight = 6
 
