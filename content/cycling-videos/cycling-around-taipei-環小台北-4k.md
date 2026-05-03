@@ -5,13 +5,13 @@ draft: false
 tags: ["cycling-videos"]
 youtube_id: "h0ubSpsOUEA"
 duration: "2h 40m"
-views: 366
+views: 411
 ---
 
 {{< youtube h0ubSpsOUEA >}}
 
 **Duration:** 2h 40m  
-**Views:** 366  
+**Views:** 411  
 **Published:** 2025-01-25
 
 Cycling adventure through 環小台北 (Around Taipei). Shot in stunning 4K quality, showcasing Taiwan's beautiful landscapes and cycling routes.

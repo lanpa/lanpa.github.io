@@ -5,13 +5,13 @@ draft: false
 tags: ["cycling-videos"]
 youtube_id: "355ghwf2eTs"
 duration: "1h 28m"
-views: 28
+views: 33
 ---
 
 {{< youtube 355ghwf2eTs >}}
 
 **Duration:** 1h 28m  
-**Views:** 28  
+**Views:** 33  
 **Published:** 2025-01-24
 
 Technical analysis of GPS tracking accuracy and data visualization methods using GoPro dashboard overlay tools.

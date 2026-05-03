@@ -5,13 +5,13 @@ draft: false
 tags: ["cycling-videos"]
 youtube_id: "ulkx6TFnuyQ"
 duration: "52m"
-views: 129
+views: 134
 ---
 
 {{< youtube ulkx6TFnuyQ >}}
 
 **Duration:** 52m  
-**Views:** 129  
+**Views:** 134  
 **Published:** 2025-02-15
 
 Expert guide to the famous Shimanami Kaido cycling route in Japan. Learn from someone who has completed this iconic route 30+ times.
