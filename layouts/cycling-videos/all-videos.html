@@ -13,8 +13,10 @@
     {{- range $pag.Pages }}
     <a class="lp-card" href="{{ .RelPermalink }}">
       <div class="lp-card-image">
-        {{- with .Params.image }}
-        <img src="{{ . | relURL }}" alt="{{ .Title }}" loading="lazy">
+        {{- if .Params.image }}
+        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy">
+        {{- else if .Params.youtube_id }}
+        <img src="https://img.youtube.com/vi/{{ .Params.youtube_id }}/mqdefault.jpg" alt="{{ .Title }}" loading="lazy">
         {{- else }}
         <div class="lp-card-image-placeholder"></div>
         {{- end }}
