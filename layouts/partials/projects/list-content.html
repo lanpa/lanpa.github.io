@@ -35,11 +35,7 @@
       </div>
       <div class="lp-card-body">
         <div class="lp-card-meta">{{ .Date.Format "Jan 2006" }}</div>
-        <h3 class="lp-card-title"
-          {{- if or .Params.title_en .Params.title_zh }}
-          data-title-en="{{ .Params.title_en | default .Title }}"
-          data-title-zh="{{ .Params.title_zh | default .Title }}"
-          {{- end }}>{{ .Title }}</h3>
+        <h3 class="lp-card-title">{{ .Title }}</h3>
         {{- with .Description }}
         <p class="lp-card-summary">{{ . }}</p>
         {{- else }}{{- with .Summary }}

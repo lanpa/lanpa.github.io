@@ -1,6 +1,5 @@
 ---
 title: "鋸枕頭"
-title_en: "Cut Pillow"
 date: 2025-04-07
 summary: "how to cut a pillow into half"
 tags: ["DIY", "repair"]

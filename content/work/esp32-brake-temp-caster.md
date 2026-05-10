@@ -1,7 +1,6 @@
 +++
 date = '2024-08-01'
 title = 'ESP32 Brake Temp Caster'
-title_en = 'ESP32-BrakeTempCaster'
 tags = ['projects', 'esp32', 'hardware']
 image = '/images/projects/BrakeTempCaster.png'
 draft = false

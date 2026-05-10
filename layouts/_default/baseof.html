@@ -15,6 +15,11 @@
 
   {{ template "_internal/google_analytics.html" . }}
 
+  {{- /* Translation discovery: emit hreflang alternates for crawlers + JS toggle */ -}}
+  {{- range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+  {{- end }}
+
   {{ block "head" . }}{{ end }}
 </head>
 <body class="lp-body">
@@ -33,7 +38,12 @@
         <input type="search" id="lp-search-input" placeholder="Search…" aria-label="Search" autocomplete="off">
         <div class="lp-nav-search-results" id="lp-search-results" role="listbox" hidden></div>
       </div>
-      <button class="lp-nav-lang" type="button" id="lang-toggle" aria-label="Toggle language">中/EN</button>
+      {{- /* Language switcher: real link to the alternate translation (if any) */ -}}
+      {{- with (index .Translations 0) }}
+        {{- $label := cond (eq .Lang "en") "EN" (cond (hasPrefix .Lang "zh") "中" .Language.Label) -}}
+        <a class="lp-nav-lang" href="{{ .Permalink }}" id="lang-toggle"
+           hreflang="{{ .Lang }}" aria-label="View in {{ .Language.Label }}">{{ $label }}</a>
+      {{- end }}
     </div>
   </nav>
 
@@ -77,7 +87,6 @@
 
 </div>
 
-<script src="{{ "/js/title-i18n.js" | relURL }}"></script>
 <script src="{{ "/js/search.js" | relURL }}" defer></script>
 </body>
 </html>

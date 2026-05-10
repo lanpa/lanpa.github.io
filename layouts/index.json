@@ -2,8 +2,6 @@
 {{- range .Site.RegularPages -}}
   {{- $items = $items | append (dict
     "title"   .Title
-    "title_en" (.Params.title_en | default "")
-    "title_zh" (.Params.title_zh | default "")
     "url"     .RelPermalink
     "section" .Section
     "summary" (.Summary | plainify | chomp | truncate 200)

@@ -1,0 +1,47 @@
+{{ define "main" }}
+{{ $pages := .Parent.RegularPages.ByDate.Reverse }}
+{{ $pag   := .Paginate $pages }}
+<div class="lp-page">
+
+  <header class="lp-page-head">
+    <div class="eyebrow">Cycling Videos</div>
+    <h1 class="lp-page-title">{{ .Title }}</h1>
+    <p class="lp-page-lead">{{ len .Parent.RegularPages }} videos</p>
+  </header>
+
+  <div class="lp-card-grid">
+    {{- range $pag.Pages }}
+    <a class="lp-card" href="{{ .RelPermalink }}">
+      <div class="lp-card-image">
+        {{- with .Params.image }}
+        <img src="{{ . | relURL }}" alt="{{ .Title }}" loading="lazy">
+        {{- else }}
+        <div class="lp-card-image-placeholder"></div>
+        {{- end }}
+      </div>
+      <div class="lp-card-body">
+        <div class="lp-card-meta">{{ .Date.Format "Jan 2006" }}</div>
+        <h3 class="lp-card-title">{{ .Title }}</h3>
+        {{- with .Description }}
+        <p class="lp-card-summary">{{ . }}</p>
+        {{- else }}{{- with .Summary }}
+        <p class="lp-card-summary">{{ . | plainify | truncate 160 }}</p>
+        {{- end }}{{- end }}
+      </div>
+    </a>
+    {{- end }}
+  </div>
+
+  {{- if gt $pag.TotalPages 1 }}
+  <nav class="lp-pagination" aria-label="Page navigation">
+    {{- if $pag.HasPrev }}
+    <a href="{{ $pag.Prev.URL | absURL }}">← Previous</a>
+    {{- end }}
+    {{- if $pag.HasNext }}
+    <a href="{{ $pag.Next.URL | absURL }}">Next →</a>
+    {{- end }}
+  </nav>
+  {{- end }}
+
+</div>
+{{ end }}

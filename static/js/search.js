@@ -23,11 +23,7 @@
   }
 
   function score(item, terms) {
-    const titleAll = [
-      item.title || '',
-      item.title_en || '',
-      item.title_zh || ''
-    ].join(' ').toLowerCase();
+    const titleAll = (item.title || '').toLowerCase();
     const tagStr = (item.tags || []).join(' ').toLowerCase();
     const hay = (titleAll + ' ' + tagStr + ' ' + (item.summary || '') + ' ' + (item.section || '')).toLowerCase();
 

@@ -1,7 +1,6 @@
 +++
 date = '2025-05-08'
 title = "白沙屯馬祖半日進香"
-title_en = "Baishatun Mazu Pilgrimage"
 tags = ["travel", "hiking"]
 draft = false
 image = '/images/exploration/mazu.jpg'

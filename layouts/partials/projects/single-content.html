@@ -8,11 +8,7 @@
       {{- with .Parent }}{{- if eq .Kind "section" }}
       <div class="eyebrow">{{ .Title }}</div>
       {{- end }}{{- end }}
-      <h1 class="lp-page-title"
-        {{- if or .Params.title_en .Params.title_zh }}
-        data-title-en="{{ .Params.title_en | default .Title }}"
-        data-title-zh="{{ .Params.title_zh | default .Title }}"
-        {{- end }}>{{ .Title }}</h1>
+      <h1 class="lp-page-title">{{ .Title }}</h1>
       <div class="lp-article-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
         {{- with .ReadingTime }} · {{ . }} min read{{ end }}
