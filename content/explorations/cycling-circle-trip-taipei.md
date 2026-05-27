@@ -2,10 +2,11 @@
 title: "環騎台北"
 date: 2025-08-01
 draft: false
-description: "環騎臺北河濱自行車挑戰認證指南與問答集"
+description: "環騎臺北河濱自行車挑戰認證"
 ShowToc: true
 TocOpen: true
 comments: true
+image: /images/cycletpe/badge.png
 aliases:
   - /velodash/
   - /explorations/velodash/
@@ -20,10 +21,10 @@ aliases:
 
 # 環騎台北 Cycling Around Taipei
 
-歡迎來到環騎台北挑戰賽的完整指南！這裡包含了挑戰教學、常見問題解答，以及完整的騎乘影片記錄。
+這個活動分為挑戰騎以及輕鬆騎。每月動作夠快的人都可領域一枚水溝蓋徽章
 
-## ❓ AI協助整理的[Q&A](/explorations/velodash-qa/).
----
+[徽章交換平台](https://badge.ngzuwi.com/)
+
 
 ## 🎥 挑戰教學影片
 ---

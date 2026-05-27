@@ -1,5 +1,5 @@
 ---
-title: "環騎台北問答集"
+title: "環騎台北常見問題"
 date: 2025-08-01
 draft: false
 description: ""
@@ -8,7 +8,8 @@ weight: 1
 comments: true
 ShowToc: false
 hideTags: true
-image: /images/cycletpe/badge.png
+image: /images/emoji-question.svg
+
 aliases:
   - /velodash/qa/
   - /explorations/velodash-qa/
@@ -35,13 +36,13 @@ aliases:
 
 <div style="display: flex; justify-content: space-around; align-items: center;">
     <figure style="text-align: center; margin: 1.5rem 0; flex: 1;">
-        <img src="/images/cycletpe/image-8.png" alt="挑戰騎與輕鬆騎差異對比圖" style="width: 60%; max-width: 500px;">
+        <img src="/images/cycletpe/image-8.png" alt="挑戰騎與輕鬆騎差異對比圖" style="width: 100%; max-width: 500px;">
         <figcaption style="font-style: italic; color: #666; margin-top: 0.5rem; font-size: 0.9em;">
             木柵端出入口
         </figcaption>
     </figure>
     <figure style="text-align: center; margin: 1.5rem 0; flex: 1;">
-        <img src="/images/cycletpe/image-9.png" alt="Velodash App 操作介面說明" style="width: 60%; max-width: 500px;">
+        <img src="/images/cycletpe/image-9.png" alt="Velodash App 操作介面說明" style="width: 95%; max-width: 500px;">
         <figcaption style="font-style: italic; color: #666; margin-top: 0.5rem; font-size: 0.9em;">
             南港端出入口
         </figcaption>
