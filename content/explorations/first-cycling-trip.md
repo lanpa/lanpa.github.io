@@ -1,10 +1,18 @@
-+++
-date = '2025-07-30T01:35:20+08:00'
-title = "環騎臺北挑戰騎路線建議"
-tags = ["travel", "cycling"]
-draft = false
-+++
+---
+date: '2025-07-30T01:35:20+08:00'
+title: "環騎臺北挑戰騎路線建議"
+tags: ["travel", "cycling"]
+draft: false
+image: /images/cycletpe/IMG_1254.jpg
+---
 
-This is the story of my first multi-day cycling tour. 🚴
-逆時針
-中華科大到南港水門走法
+
+我至少騎了 50 趟，結論是逆時針搭配福德坑路線最好騎。
+
+理由：
+1. 車流少，腳踏車最怕的就是騎機車在你前面讓你加減速，或是在你後面你要分心注意。福德坑最沒有這個問題。
+2. 為什麼要逆時針？關鍵是在中華科大到南港水門這段路是緩下坡，紅綠燈又多。沿著緩下坡比較容易跟上紅綠燈的節奏。反過來會一直聽紅燈。
+3. 研究院路/捷運南港站那邊的走法：幾乎不會等紅綠燈。
+
+<img src="/images/cycletpe/IMG_1254.jpg">
+
