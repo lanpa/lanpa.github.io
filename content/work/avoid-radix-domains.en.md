@@ -43,6 +43,10 @@ So the loop closes like this:
 
 Whatever you want to call that, it isn't a working consumer product. It's a setup where two companies pass liability between them while the customer holds the bag.
 
+## Not just me
+
+After this happened I went looking and found I'm far from the only one. See, for example, [this r/Domains thread](https://www.reddit.com/r/Domains/comments/1fzee44/personal_use_domain_permanently_suspended_by/) describing the same pattern: a personal-use domain, permanently suspended by the registry, with the registrar unwilling to help. The "algorithm-generated" justification appears to be a recurring template.
+
 ## TLDs to avoid
 
 Radix operates the following TLDs. If you're picking a domain for anything you actually depend on — a product, a side project, a business, a mail-sending domain — I'd steer clear of all of them:
