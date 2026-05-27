@@ -8,6 +8,7 @@ TocOpen: true
 comments: true
 aliases:
   - /velodash/
+  - /explorations/velodash/
 ---
 
 <figure style="text-align: center; margin: 1.5rem 0;">

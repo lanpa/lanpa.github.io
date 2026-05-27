@@ -8,8 +8,10 @@ weight: 1
 comments: true
 ShowToc: false
 hideTags: true
+image: /images/cycletpe/badge.png
 aliases:
   - /velodash/qa/
+  - /explorations/velodash-qa/
 ---
 
 ## 📋 快速導航
