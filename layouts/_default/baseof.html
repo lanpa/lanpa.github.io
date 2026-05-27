@@ -41,7 +41,7 @@
       {{- /* Language switcher: real link to the alternate translation (if any) */ -}}
       {{- with (index .Translations 0) }}
         {{- $label := cond (eq .Lang "en") "EN" (cond (hasPrefix .Lang "zh") "中" .Language.Label) -}}
-        <a class="lp-nav-lang" href="{{ .Permalink }}" id="lang-toggle"
+        <a class="lp-nav-lang" href="{{ .RelPermalink }}" id="lang-toggle"
            hreflang="{{ .Lang }}" aria-label="View in {{ .Language.Label }}">{{ $label }}</a>
       {{- end }}
     </div>
