@@ -3,6 +3,7 @@ title: "鋸枕頭"
 date: 2025-04-07
 summary: "how to cut a pillow into half"
 tags: ["DIY", "repair"]
+image: /images/pillow/IMG_8456_watermarked.jpg
 ---
 
 乳膠枕頭太厚睡起來脖子不舒服，所以想把它橫切一半，讓高度剛好合適。

@@ -3,6 +3,7 @@ title: "Retrieve data from a locked out samsung SSD"
 date: 2024-06-13
 summary: "Step-by-step guide to recover data from an SSD"
 tags: ["laptop", "repair", "hardware"]
+image: /images/fixing/image-2.png
 ---
 
 

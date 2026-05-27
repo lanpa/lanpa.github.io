@@ -3,6 +3,7 @@ title: "從鎖定的 Samsung SSD 中救回資料"
 date: 2024-06-13
 summary: "Step-by-step guide to recover data from an SSD"
 tags: ["laptop", "repair", "hardware"]
+image: /images/fixing/image-2.png
 source_hash : "sha256:05639afa393d28b0e7a4e1e9ac50ff03"
 ai_translated: true
 ---
